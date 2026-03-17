@@ -3,11 +3,11 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-  "build": "npx astro build",
-  "dev": "astro dev",
-  "preview": "astro preview"
+    "build": "npx astro build",
+    "dev": "astro dev",
+    "preview": "astro preview"
   },
-  "devDependencies": {
+  "dependencies": {
     "astro": "^6.0.5"
   }
 }
