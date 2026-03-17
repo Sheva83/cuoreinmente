@@ -1,0 +1,226 @@
+---
+---
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <span class="logo-red">Cuore</span><span class="logo-white">inMente</span>
+      </a>
+      <p class="footer-tagline">
+        Associazione per la prevenzione e promozione della salute neuro-cardiovascolare.
+      </p>
+      <p class="footer-address">
+        P.zza Schiaparelli 10, 12038 Savigliano (CN)<br />
+        C.F. 94048590049
+      </p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/cuoreinmente/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/cuoreinmente/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigazione</h4>
+      <a href="/">Home</a>
+      <a href="/chi-siamo">Chi siamo</a>
+      <a href="/cosa-facciamo">Cosa facciamo</a>
+      <a href="/news">News</a>
+      <a href="/contatti">Contatti</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <a href="mailto:info@cuoreinmente.it">info@cuoreinmente.it</a>
+      <a href="mailto:bls-d@cuoreinmente.it">bls-d@cuoreinmente.it</a>
+      <a href="mailto:segreteria@cuoreinmente.it">segreteria@cuoreinmente.it</a>
+    </div>
+
+    <div class="footer-donate-col">
+      <h4>Sostieni la causa</h4>
+      <p>Il tuo aiuto fa la differenza per tutta la comunità.</p>
+      <a href="/dona-ora" class="btn-footer-donate">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+        Dona ora
+      </a>
+      <div class="footer-partner">
+        <span>Con il supporto di</span>
+        <strong>CSV Società Solidale</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© 2025 CuoreinMente APS — Tutti i diritti riservati</p>
+      <div class="footer-legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/credits">Credits</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: #111;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 48px;
+  padding: 64px 24px 56px;
+}
+
+.logo {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.logo-red { color: #E87B6B; }
+.logo-white { color: white; }
+
+.footer-tagline {
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-address {
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.footer-socials a:hover {
+  border-color: rgba(255,255,255,0.4);
+  color: white;
+  background: rgba(255,255,255,0.08);
+}
+
+.footer-col h4,
+.footer-donate-col h4 {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 18px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 6px;
+}
+.footer-col a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  transition: color var(--transition);
+}
+.footer-col a:hover { color: white; }
+
+.footer-donate-col {
+  padding-top: 6px;
+}
+.footer-donate-col p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.btn-footer-donate {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--red);
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+  transition: background var(--transition);
+}
+.btn-footer-donate:hover { background: var(--red-dark); }
+
+.footer-partner {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.footer-partner span {
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.footer-partner strong {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+}
+
+.footer-bottom {
+  border-top: 0.5px solid rgba(255,255,255,0.06);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.footer-bottom p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+}
+.footer-legal a {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  transition: color var(--transition);
+}
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom-inner { flex-direction: column; gap: 10px; text-align: center; }
+}
+</style>

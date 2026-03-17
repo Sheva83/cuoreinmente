@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contatti" description="Contatta CuoreinMente APS. Siamo a Savigliano (CN). Scrivici per info su corsi BLSD, eventi e attività.">
+  <Nav />
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400&q=75&auto=format&fit=crop" alt="Contatti" loading="eager" />
+        <div class="page-hero-overlay"></div>
+      </div>
+      <div class="container page-hero-content">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>/</span><span>Contatti</span>
+        </div>
+        <h1 class="page-title">Scrivici, <em>siamo qui.</em></h1>
+        <p class="page-subtitle">Per informazioni su corsi, eventi o per unirti a noi come volontario.</p>
+      </div>
+    </section>
+
+    <!-- Contatti main -->
+    <section class="contact-section">
+      <div class="container contact-grid">
+
+        <!-- Info cards -->
+        <div class="contact-info">
+          <h2 class="section-h2">Come<br /><em>contattarci</em></h2>
+          <p class="contact-intro">Puoi scriverci tramite il modulo oppure direttamente via email. Rispondiamo entro 48 ore.</p>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="cc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="cc-label">Email generale</div>
+                <a href="mailto:info@cuoreinmente.it" class="cc-value">info@cuoreinmente.it</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="cc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="cc-label">Corsi BLSD</div>
+                <a href="mailto:bls-d@cuoreinmente.it" class="cc-value">bls-d@cuoreinmente.it</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="cc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="cc-label">Segreteria</div>
+                <a href="mailto:segreteria@cuoreinmente.it" class="cc-value">segreteria@cuoreinmente.it</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="cc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="cc-label">Sede operativa</div>
+                <span class="cc-value">P.zza Schiaparelli 10, 12038 Savigliano (CN)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-row">
+            <span class="social-label">Seguici sui social</span>
+            <a href="https://www.facebook.com/cuoreinmente/" target="_blank" rel="noopener" class="social-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+            <a href="https://www.instagram.com/cuoreinmente/" target="_blank" rel="noopener" class="social-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-wrap">
+          <h3 class="form-title">Inviaci un messaggio</h3>
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required />
+              </div>
+              <div class="form-group">
+                <label for="cognome">Cognome</label>
+                <input type="text" id="cognome" name="cognome" placeholder="Il tuo cognome" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="la-tua@email.it" required />
+            </div>
+            <div class="form-group">
+              <label for="oggetto">Oggetto</label>
+              <select id="oggetto" name="oggetto">
+                <option value="">Seleziona un argomento</option>
+                <option value="blsd">Corso BLSD</option>
+                <option value="volontario">Diventare volontario</option>
+                <option value="eventi">Informazioni eventi</option>
+                <option value="donazioni">Donazioni</option>
+                <option value="altro">Altro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="messaggio">Messaggio</label>
+              <textarea id="messaggio" name="messaggio" rows="5" placeholder="Scrivi il tuo messaggio..." required></textarea>
+            </div>
+            <div class="form-privacy">
+              <input type="checkbox" id="privacy" name="privacy" required />
+              <label for="privacy">Ho letto e accetto la <a href="/privacy-policy">Privacy Policy</a></label>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <span id="btnText">Invia messaggio</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <div class="form-success" id="formSuccess">
+              ✓ Messaggio inviato! Ti risponderemo entro 48 ore.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Mappa zona -->
+    <section class="map-section">
+      <div class="container">
+        <h2 class="section-h2" style="margin-bottom:4px">Dove siamo</h2>
+        <p style="color:var(--ink-muted);font-size:14px;margin-bottom:32px">Savigliano, in provincia di Cuneo (CN), Piemonte.</p>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11386.61!2d7.6595!3d44.6469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d277b0e5c5a4b1%3A0x405a1e4e!2sSavigliano%2C%20CN%2C%20Italia!5e0!3m2!1sit!2sit!4v1234567890"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          title="Mappa Savigliano"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+.page-hero { position:relative; min-height:380px; display:flex; align-items:flex-end; padding-bottom:64px; background:#111; overflow:hidden; }
+.page-hero-bg { position:absolute; inset:0; }
+.page-hero-bg img { width:100%; height:100%; object-fit:cover; opacity:0.4; }
+.page-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,5,5,0.85) 0%, rgba(10,5,5,0.3) 100%); }
+.page-hero-content { position:relative; z-index:10; }
+.breadcrumb { display:flex; gap:8px; align-items:center; font-size:12px; color:rgba(255,255,255,0.4); margin-bottom:20px; }
+.breadcrumb a { color:rgba(255,255,255,0.5); }
+.breadcrumb a:hover { color:white; }
+.page-title { font-family:var(--font-display); font-size:clamp(40px,5.5vw,68px); font-weight:400; color:white; margin-bottom:12px; }
+.page-title em { font-style:italic; color:#E87B6B; }
+.page-subtitle { font-size:16px; color:rgba(255,255,255,0.65); max-width:480px; line-height:1.65; }
+
+.contact-section { padding:88px 0; }
+.contact-grid { display:grid; grid-template-columns:1fr 1.3fr; gap:80px; align-items:start; }
+.section-h2 { font-family:var(--font-display); font-size:clamp(28px,3.5vw,40px); font-weight:400; color:var(--ink); margin-bottom:16px; }
+.section-h2 em { font-style:italic; color:var(--red); }
+.contact-intro { font-size:14px; color:var(--ink-muted); line-height:1.7; margin-bottom:32px; }
+
+.contact-cards { display:flex; flex-direction:column; gap:12px; margin-bottom:32px; }
+.contact-card { display:flex; align-items:flex-start; gap:14px; padding:16px 18px; background:var(--cream); border:0.5px solid var(--cream-border); border-radius:var(--radius-sm); }
+.cc-icon { width:38px; height:38px; background:var(--red-light); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; color:var(--red); flex-shrink:0; }
+.cc-label { font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+.cc-value { font-size:14px; color:var(--ink); }
+a.cc-value { color:var(--red); transition:opacity .2s; }
+a.cc-value:hover { opacity:0.75; }
+
+.social-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.social-label { font-size:12px; color:var(--ink-faint); }
+.social-btn { display:inline-flex; align-items:center; gap:6px; background:var(--cream); border:0.5px solid var(--cream-border); color:var(--ink-muted); font-size:13px; padding:8px 14px; border-radius:var(--radius-pill); transition:border-color .2s, color .2s; }
+.social-btn:hover { border-color:var(--red); color:var(--red); }
+
+/* ── Form ── */
+.contact-form-wrap { background:var(--cream); border:0.5px solid var(--cream-border); border-radius:var(--radius-md); padding:36px 32px; }
+.form-title { font-family:var(--font-display); font-size:22px; font-weight:400; color:var(--ink); margin-bottom:28px; }
+.contact-form { display:flex; flex-direction:column; gap:18px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.form-group { display:flex; flex-direction:column; gap:6px; }
+.form-group label { font-size:12px; font-weight:500; color:var(--ink); text-transform:uppercase; letter-spacing:0.5px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family:var(--font-body);
+  font-size:14px;
+  padding:11px 14px;
+  border:0.5px solid var(--cream-border);
+  border-radius:var(--radius-sm);
+  background:white;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .2s, box-shadow .2s;
+  width:100%;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color:var(--red);
+  box-shadow:0 0 0 3px rgba(192,57,43,0.08);
+}
+.form-group textarea { resize:vertical; min-height:120px; }
+.form-group select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px; }
+
+.form-privacy { display:flex; align-items:flex-start; gap:10px; }
+.form-privacy input { width:auto; margin-top:2px; flex-shrink:0; }
+.form-privacy label { font-size:12px; color:var(--ink-muted); line-height:1.5; }
+.form-privacy a { color:var(--red); text-decoration:underline; }
+
+.btn-submit { display:flex; align-items:center; justify-content:center; gap:8px; background:var(--red); color:white; font-family:var(--font-body); font-size:14px; font-weight:500; padding:14px 28px; border-radius:var(--radius-pill); border:none; cursor:pointer; transition:background .25s, transform .25s; width:100%; }
+.btn-submit:hover { background:var(--red-dark); transform:translateY(-1px); }
+
+.form-success { display:none; padding:14px 18px; background:#EAF5EF; border:0.5px solid #A8D9B8; border-radius:var(--radius-sm); font-size:14px; color:#1a6e3a; }
+.form-success.show { display:block; }
+
+/* ── Map ── */
+.map-section { background:var(--cream); border-top:0.5px solid var(--cream-border); padding-top:64px; }
+.map-embed { margin-top:0; border-top:0.5px solid var(--cream-border); }
+.map-embed iframe { display:block; }
+
+@media(max-width:900px) {
+  .contact-grid { grid-template-columns:1fr; gap:48px; }
+  .form-row { grid-template-columns:1fr; }
+}
+</style>
+
+<script>
+document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn') as HTMLButtonElement;
+  const txt = document.getElementById('btnText');
+  const success = document.getElementById('formSuccess');
+  if (btn) btn.disabled = true;
+  if (txt) txt.textContent = 'Invio in corso...';
+  setTimeout(() => {
+    if (btn) btn.style.display = 'none';
+    if (success) success.classList.add('show');
+  }, 1200);
+});
+</script>

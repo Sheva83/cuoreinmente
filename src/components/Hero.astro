@@ -1,0 +1,388 @@
+---
+const slides = [
+  {
+    img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1400&q=80&auto=format&fit=crop",
+    alt: "Medici che collaborano per la salute",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=80&auto=format&fit=crop",
+    alt: "Corso di primo soccorso BLSD",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80&auto=format&fit=crop",
+    alt: "Attività sportiva e prevenzione",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1400&q=80&auto=format&fit=crop",
+    alt: "Comunità e salute",
+  },
+];
+---
+
+<section class="hero" id="hero">
+  <div class="hero-slides">
+    {slides.map((slide, i) => (
+      <div class:list={["slide", { active: i === 0 }]} data-index={i}>
+        <img src={slide.img} alt={slide.alt} loading={i === 0 ? "eager" : "lazy"} />
+        <div class="slide-overlay"></div>
+      </div>
+    ))}
+  </div>
+
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Associazione APS — Savigliano (CN)
+      </div>
+
+      <h1 class="hero-title">
+        Abbiamo a cuore<br />
+        la salute di <em>tutti.</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        Informiamo, educhiamo e formiamo la comunità per prevenire le malattie neuro-cardiovascolari. Insieme possiamo fare la differenza.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/dona-ora" class="btn-hero-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+          Sostieni la causa
+        </a>
+        <a href="/cosa-facciamo" class="btn-hero-secondary">
+          Scopri di più
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">2018</div>
+        <div class="stat-label">Anno di fondazione</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">BLSD</div>
+        <div class="stat-label">Corsi certificati</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Volontari</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-nav">
+    {slides.map((_, i) => (
+      <button
+        class:list={["slide-dot", { active: i === 0 }]}
+        data-target={i}
+        aria-label={`Slide ${i + 1}`}
+      ></button>
+    ))}
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scorri</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #111;
+}
+
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.slide.active { opacity: 1; }
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+}
+.slide.active img { transform: scale(1); }
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10,5,5,0.78) 0%,
+    rgba(10,5,5,0.5) 50%,
+    rgba(10,5,5,0.2) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 0.5px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.85);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  animation: fadeUp 0.8s ease both;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.4); }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  color: white;
+  line-height: 1.08;
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-title em {
+  font-style: italic;
+  color: #E87B6B;
+}
+
+.hero-subtitle {
+  font-size: clamp(15px, 1.6vw, 17px);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 36px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(192,57,43,0.4);
+}
+.btn-hero-primary:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(192,57,43,0.5);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: color var(--transition), border-color var(--transition);
+}
+.btn-hero-secondary:hover {
+  color: white;
+  border-color: rgba(255,255,255,0.8);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2px;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
+  border: 0.5px solid rgba(255,255,255,0.12);
+  padding: 20px 28px;
+  border-radius: var(--radius-sm);
+  flex: 0 0 auto;
+}
+.stat-card:first-child { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.stat-card:last-child { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: white;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.slide-nav {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 20;
+}
+.slide-dot {
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, width 0.3s;
+  padding: 0;
+}
+.slide-dot.active {
+  background: white;
+  width: 40px;
+}
+
+.scroll-hint {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 20;
+}
+.scroll-hint span {
+  color: rgba(255,255,255,0.4);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+.scroll-arrow {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-arrow::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero-content { padding-top: 80px; padding-bottom: 80px; gap: 40px; }
+  .hero-stats { gap: 2px; }
+  .stat-card { padding: 16px 18px; }
+  .stat-num { font-size: 22px; }
+  .scroll-hint { display: none; }
+}
+</style>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.slide-dot');
+let current = 0;
+let timer: ReturnType<typeof setInterval>;
+
+function goTo(index: number) {
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (index + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+}
+
+function next() { goTo(current + 1); }
+
+function startAuto() {
+  timer = setInterval(next, 5000);
+}
+
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    clearInterval(timer);
+    goTo(i);
+    startAuto();
+  });
+});
+
+startAuto();
+</script>

@@ -1,0 +1,169 @@
+---
+const navLinks = [
+  { label: "Chi siamo", href: "/chi-siamo" },
+  { label: "Cosa facciamo", href: "/cosa-facciamo" },
+  { label: "News", href: "/news" },
+  { label: "Contatti", href: "/contatti" },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="nav-wrapper">
+  <div class="container nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-cuore">Cuore</span><span class="logo-mente">inMente</span>
+    </a>
+
+    <nav class="nav-links" role="navigation" aria-label="Navigazione principale">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={["nav-link", { active: currentPath.startsWith(link.href) }]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a href="/dona-ora" class="btn-donate">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;vertical-align:-2px"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+      Dona ora
+    </a>
+
+    <button class="mobile-toggle" aria-label="Apri menu" id="mobileToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    {navLinks.map(link => (
+      <a href={link.href} class="mobile-link">{link.label}</a>
+    ))}
+    <a href="/dona-ora" class="mobile-donate">Dona ora</a>
+  </div>
+</header>
+
+<style>
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid var(--cream-border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 68px;
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: -0.3px;
+  flex-shrink: 0;
+}
+.logo-cuore { color: var(--red); }
+.logo-mente { color: var(--ink); }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  margin-left: auto;
+}
+.nav-link {
+  font-size: 14px;
+  color: var(--ink-muted);
+  font-weight: 400;
+  transition: color var(--transition);
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--red);
+  transition: width var(--transition);
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--ink);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+.btn-donate {
+  display: flex;
+  align-items: center;
+  background: var(--red);
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.2px;
+  transition: background var(--transition), transform var(--transition);
+  white-space: nowrap;
+}
+.btn-donate:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+}
+.mobile-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: var(--transition);
+}
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 16px 24px 20px;
+  border-top: 0.5px solid var(--cream-border);
+  background: white;
+}
+.mobile-link {
+  font-size: 15px;
+  color: var(--ink);
+  padding: 12px 0;
+  border-bottom: 0.5px solid var(--cream-border);
+}
+.mobile-donate {
+  display: inline-block;
+  margin-top: 16px;
+  background: var(--red);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .nav-links, .btn-donate { display: none; }
+  .mobile-toggle { display: flex; }
+  .mobile-menu.open { display: flex; }
+}
+</style>
+
+<script>
+const toggle = document.getElementById('mobileToggle');
+const menu = document.getElementById('mobileMenu');
+toggle?.addEventListener('click', () => menu?.classList.toggle('open'));
+</script>

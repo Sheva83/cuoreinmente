@@ -1,0 +1,204 @@
+---
+const news = [
+  {
+    tag: "eventi",
+    title: "Nella tua città, nel tuo Cuore",
+    date: "15 Mar 2022",
+    img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=75&auto=format&fit=crop",
+    href: "/news/nella-tua-citta-nel-tuo-cuore",
+  },
+  {
+    tag: "eventi",
+    title: "Week-end in bici sulla Costa Azzurra",
+    date: "22 Mar 2022",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75&auto=format&fit=crop",
+    href: "/news/week-end-in-bici-sulla-costa-azzurra",
+  },
+  {
+    tag: "eventi",
+    title: "Cuore e natura: una camminata per la salute",
+    date: "5 Apr 2022",
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=75&auto=format&fit=crop",
+    href: "/news/cuore-e-natura",
+  },
+];
+---
+
+<section class="news-section">
+  <div class="container">
+    <div class="news-header">
+      <div>
+        <div class="section-eyebrow">Ultime novità</div>
+        <h2 class="section-title" style="margin-bottom:0">
+          Le <em>novità</em>
+        </h2>
+      </div>
+      <a href="/news" class="news-all-link">
+        Vedi tutte le news
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="news-grid">
+      {news.map((item, i) => (
+        <a href={item.href} class="news-card" style={`animation-delay: ${i * 0.1}s`}>
+          <div class="news-img-wrap">
+            <img src={item.img} alt={item.title} loading="lazy" />
+            <div class="news-tag">{item.tag}</div>
+          </div>
+          <div class="news-body">
+            <span class="news-date">{item.date}</span>
+            <h3 class="news-title">{item.title}</h3>
+            <span class="news-read">
+              Leggi
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.news-section {
+  padding: 96px 0;
+  background: var(--cream);
+  border-top: 0.5px solid var(--cream-border);
+}
+
+.news-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 400;
+  color: var(--ink);
+}
+.section-title em { font-style: italic; color: var(--red); }
+
+.news-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--red);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color var(--transition), gap var(--transition);
+  white-space: nowrap;
+  align-self: flex-end;
+  margin-bottom: 6px;
+}
+.news-all-link:hover {
+  border-color: var(--red);
+  gap: 10px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.news-card {
+  background: white;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 0.5px solid var(--cream-border);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.news-img-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.news-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.news-card:hover .news-img-wrap img {
+  transform: scale(1.05);
+}
+
+.news-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--red);
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.news-body {
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.news-date {
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.3px;
+}
+
+.news-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.35;
+  flex: 1;
+}
+
+.news-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--red);
+  margin-top: 4px;
+  transition: gap var(--transition);
+}
+.news-card:hover .news-read { gap: 8px; }
+
+@media (max-width: 768px) {
+  .news-section { padding: 64px 0; }
+  .news-grid { grid-template-columns: 1fr; }
+  .news-img-wrap { height: 220px; }
+}
+</style>

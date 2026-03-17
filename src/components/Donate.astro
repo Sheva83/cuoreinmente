@@ -1,0 +1,187 @@
+---
+---
+
+<section class="donate-section">
+  <div class="donate-bg">
+    <img
+      src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1400&q=75&auto=format&fit=crop"
+      alt="Comunità"
+      loading="lazy"
+    />
+    <div class="donate-overlay"></div>
+  </div>
+
+  <div class="container donate-inner">
+    <div class="donate-text">
+      <div class="section-eyebrow" style="color: rgba(255,255,255,0.6)">Fai la differenza</div>
+      <h2 class="donate-title">
+        Ogni donazione migliora<br />
+        la vita di <em>tutti noi.</em>
+      </h2>
+      <p class="donate-sub">
+        Il tuo contributo, anche piccolo, ci permette di organizzare corsi, eventi e attività di prevenzione aperte a tutta la comunità.
+      </p>
+    </div>
+
+    <div class="donate-action">
+      <div class="donate-amounts">
+        <button class="amount-btn" data-amount="10">€10</button>
+        <button class="amount-btn active" data-amount="25">€25</button>
+        <button class="amount-btn" data-amount="50">€50</button>
+        <button class="amount-btn" data-amount="100">€100</button>
+      </div>
+      <a href="/dona-ora" class="btn-donate-main">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+        Voglio donare
+      </a>
+      <p class="donate-note">
+        Donazione sicura · Deducibile fiscalmente
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+.donate-section {
+  position: relative;
+  padding: 96px 0;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.donate-bg {
+  position: absolute;
+  inset: 0;
+}
+.donate-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+.donate-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(192,57,43,0.6) 0%, rgba(10,5,5,0.85) 60%);
+}
+
+.donate-inner {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 64px;
+  align-items: center;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+.donate-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.donate-title em {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.donate-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+.donate-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 260px;
+}
+
+.donate-amounts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.amount-btn {
+  background: rgba(255,255,255,0.08);
+  border: 0.5px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  padding: 10px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.amount-btn:hover,
+.amount-btn.active {
+  background: white;
+  color: var(--red);
+  border-color: white;
+}
+
+.btn-donate-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: var(--red);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 16px 32px;
+  border-radius: var(--radius-pill);
+  width: 100%;
+  justify-content: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.btn-donate-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.donate-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  width: 100%;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 900px) {
+  .donate-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .donate-action { min-width: unset; width: 100%; max-width: 360px; }
+}
+
+@media (max-width: 768px) {
+  .donate-section { padding: 64px 0; }
+}
+</style>
+
+<script>
+document.querySelectorAll('.amount-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>

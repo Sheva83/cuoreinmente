@@ -1,0 +1,172 @@
+---
+const pillars = [
+  {
+    num: "01",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "Informazione",
+    desc: "Organizziamo conferenze, incontri, dibattiti ed eventi per promuovere consapevolezza e sensibilità riguardanti le malattie neuro-cardiovascolari.",
+  },
+  {
+    num: "02",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`,
+    title: "Formazione",
+    desc: "Organizziamo corsi BLSD (Basic Life Support Defibrillation) rivolti ai cittadini, con particolare riguardo a chi non appartiene alle professioni sanitarie.",
+  },
+  {
+    num: "03",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    title: "Prevenzione",
+    desc: "Screening territoriale per i cittadini, diffusione della cultura dell'alimentazione sana e attività fisiche sportive: pedalate, camminate e molto altro.",
+  },
+];
+---
+
+<section class="pillars-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Come agiamo</div>
+      <h2 class="section-title">
+        Tre modi per<br />proteggere la <em>salute</em>
+      </h2>
+      <p class="section-sub">
+        Ogni attività è pensata per raggiungere le persone nella vita quotidiana, con concretezza e cura.
+      </p>
+    </div>
+
+    <div class="pillars-grid">
+      {pillars.map((p, i) => (
+        <div class="pillar-card" style={`animation-delay: ${i * 0.1}s`}>
+          <div class="pillar-top">
+            <span class="pillar-num">{p.num}</span>
+            <div class="pillar-icon" set:html={p.icon} />
+          </div>
+          <h3 class="pillar-title">{p.title}</h3>
+          <p class="pillar-desc">{p.desc}</p>
+          <a href="/cosa-facciamo" class="pillar-link">
+            Scopri di più
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.pillars-section {
+  padding: 96px 0;
+  background: var(--white);
+}
+
+.section-header {
+  max-width: 520px;
+  margin-bottom: 56px;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.section-title em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.section-sub {
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.pillar-card {
+  background: var(--cream);
+  border: 0.5px solid var(--cream-border);
+  border-radius: var(--radius-md);
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: #d4b8ae;
+}
+
+.pillar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.pillar-num {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: #DEC5BE;
+  line-height: 1;
+}
+
+.pillar-icon {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  border: 0.5px solid var(--cream-border);
+}
+
+.pillar-title {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.pillar-desc {
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.pillar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--red);
+  margin-top: 8px;
+  transition: gap var(--transition);
+}
+.pillar-link:hover { gap: 10px; }
+
+@media (max-width: 768px) {
+  .pillars-section { padding: 64px 0; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 14px; }
+}
+</style>

@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const attivita = [
+  {
+    num: "01",
+    titolo: "Informazione",
+    img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=75&auto=format&fit=crop",
+    desc: "Organizziamo conferenze, incontri, dibattiti ed eventi pubblici al fine di promuovere consapevolezza e sensibilità riguardanti le malattie neuro-cardiovascolari.",
+    dettagli: ["Conferenze pubbliche aperte a tutti", "Incontri nelle scuole e nelle parrocchie", "Dibattiti con specialisti del settore", "Partecipazione a fiere ed eventi territoriali"],
+  },
+  {
+    num: "02",
+    titolo: "Formazione BLSD",
+    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=75&auto=format&fit=crop",
+    desc: "Organizziamo corsi BLSD (Basic Life Support Defibrillation) rivolti ai cittadini, con particolare riguardo alla formazione di coloro che non appartengono alle professioni sanitarie.",
+    dettagli: ["Corsi BLSD certificati per adulti e ragazzi", "Utilizzo del defibrillatore (DAE)", "Manovre di rianimazione cardiopolmonare", "Gestione dell'emergenza in attesa dei soccorsi"],
+  },
+  {
+    num: "03",
+    titolo: "Prevenzione attiva",
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=75&auto=format&fit=crop",
+    desc: "Attività di prevenzione e cura attraverso screening territoriale, diffusione della cultura dell'alimentazione sana e attività fisiche come pedalate e camminate.",
+    dettagli: ["Screening cardiologico gratuito", "Misurazione pressione e glicemia", "Pedalate e camminate nella natura", "Workshop su alimentazione e stile di vita sano"],
+  },
+];
+---
+
+<Layout title="Cosa facciamo" description="Scopri le attività di CuoreinMente: informazione, formazione BLSD e prevenzione cardiovascolare a Savigliano.">
+  <Nav />
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1400&q=75&auto=format&fit=crop" alt="Cosa facciamo" loading="eager" />
+        <div class="page-hero-overlay"></div>
+      </div>
+      <div class="container page-hero-content">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>/</span><span>Cosa facciamo</span>
+        </div>
+        <h1 class="page-title">Cosa <em>facciamo</em></h1>
+        <p class="page-subtitle">Ci impegniamo ogni giorno per informare, educare, formare e coinvolgere attivamente la collettività.</p>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro-section">
+      <div class="container intro-inner">
+        <p class="intro-text">
+          Ogni attività di CuoreinMente nasce dalla convinzione che la prevenzione salva le vite. Attraverso tre aree di intervento — informazione, formazione e prevenzione attiva — raggiungiamo i cittadini nella vita quotidiana.
+        </p>
+        <div class="intro-stats">
+          <div class="istat"><span class="istat-num">3</span><span class="istat-label">Aree di intervento</span></div>
+          <div class="istat"><span class="istat-num">BLSD</span><span class="istat-label">Corsi certificati</span></div>
+          <div class="istat"><span class="istat-num">2018</span><span class="istat-label">In attività da</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Attività -->
+    {attivita.map((a, i) => (
+      <section class:list={["attivita-section", { reverse: i % 2 !== 0 }]}>
+        <div class="container attivita-inner">
+          <div class="att-img-col">
+            <div class="att-num">{a.num}</div>
+            <img src={a.img} alt={a.titolo} loading="lazy" />
+          </div>
+          <div class="att-text-col">
+            <div class="eyebrow">{a.titolo}</div>
+            <h2 class="section-h2">{a.titolo}</h2>
+            <p class="att-desc">{a.desc}</p>
+            <ul class="att-list">
+              {a.dettagli.map(d => (
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  {d}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Vuoi partecipare -->
+    <section class="partecipa-section">
+      <div class="container">
+        <div class="eyebrow" style="text-align:center">Partecipa</div>
+        <h2 class="section-h2" style="text-align:center;margin-bottom:12px">Vuoi partecipare alle nostre attività?</h2>
+        <p style="text-align:center;color:var(--ink-muted);font-size:15px;max-width:480px;margin:0 auto 40px;line-height:1.7">Tutti gli eventi sono aperti alla cittadinanza. Seguici sui social o contattaci per rimanere aggiornato.</p>
+        <div class="partecipa-btns">
+          <a href="/contatti" class="btn-primary-red">Contattaci</a>
+          <a href="/news" class="btn-outline-red">Vedi gli eventi</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+.page-hero { position:relative; min-height:420px; display:flex; align-items:flex-end; padding-bottom:64px; background:#111; overflow:hidden; }
+.page-hero-bg { position:absolute; inset:0; }
+.page-hero-bg img { width:100%; height:100%; object-fit:cover; opacity:0.4; }
+.page-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,5,5,0.85) 0%, rgba(10,5,5,0.3) 100%); }
+.page-hero-content { position:relative; z-index:10; }
+.breadcrumb { display:flex; gap:8px; align-items:center; font-size:12px; color:rgba(255,255,255,0.4); margin-bottom:20px; }
+.breadcrumb a { color:rgba(255,255,255,0.5); }
+.breadcrumb a:hover { color:white; }
+.page-title { font-family:var(--font-display); font-size:clamp(44px,6vw,72px); font-weight:400; color:white; margin-bottom:12px; }
+.page-title em { font-style:italic; color:#E87B6B; }
+.page-subtitle { font-size:16px; color:rgba(255,255,255,0.65); max-width:480px; line-height:1.65; }
+
+.intro-section { background:var(--cream); border-bottom:0.5px solid var(--cream-border); padding:56px 0; }
+.intro-inner { display:flex; gap:64px; align-items:center; }
+.intro-text { font-family:var(--font-display); font-size:clamp(18px,2.2vw,24px); font-weight:400; color:var(--ink); line-height:1.5; flex:2; font-style:italic; }
+.intro-stats { display:flex; flex-direction:column; gap:16px; flex:1; min-width:180px; }
+.istat { display:flex; flex-direction:column; gap:3px; padding-bottom:16px; border-bottom:0.5px solid var(--cream-border); }
+.istat:last-child { border-bottom:none; padding-bottom:0; }
+.istat-num { font-family:var(--font-display); font-size:28px; color:var(--red); }
+.istat-label { font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.5px; }
+
+.attivita-section { padding:88px 0; background:white; }
+.attivita-section:nth-child(even) { background:var(--cream); }
+.attivita-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.attivita-section.reverse .attivita-inner { direction:rtl; }
+.attivita-section.reverse .att-text-col { direction:ltr; }
+.att-img-col { position:relative; }
+.att-num { position:absolute; top:-20px; left:-16px; font-family:var(--font-display); font-size:80px; color:var(--cream-border); line-height:1; z-index:0; pointer-events:none; }
+.attivita-section:nth-child(even) .att-num { color:#ddd; }
+.att-img-col img { width:100%; height:420px; object-fit:cover; border-radius:var(--radius-md); position:relative; z-index:1; }
+.att-text-col { direction:ltr; }
+.eyebrow { font-size:11px; font-weight:500; color:var(--red); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:12px; }
+.section-h2 { font-family:var(--font-display); font-size:clamp(28px,3.5vw,40px); font-weight:400; color:var(--ink); margin-bottom:18px; }
+.att-desc { font-size:15px; color:var(--ink-muted); line-height:1.75; margin-bottom:28px; }
+.att-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+.att-list li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--ink-muted); line-height:1.5; }
+.att-list li svg { color:var(--red); flex-shrink:0; margin-top:2px; }
+
+.partecipa-section { padding:88px 0; background:var(--cream); border-top:0.5px solid var(--cream-border); }
+.partecipa-btns { display:flex; gap:14px; justify-content:center; }
+.btn-primary-red { background:var(--red); color:white; font-size:14px; font-weight:500; padding:13px 28px; border-radius:var(--radius-pill); transition:background .25s, transform .25s; }
+.btn-primary-red:hover { background:var(--red-dark); transform:translateY(-1px); }
+.btn-outline-red { border:1.5px solid var(--red); color:var(--red); font-size:14px; font-weight:500; padding:12px 28px; border-radius:var(--radius-pill); transition:background .25s, color .25s; }
+.btn-outline-red:hover { background:var(--red); color:white; }
+
+@media(max-width:900px) {
+  .intro-inner { flex-direction:column; gap:40px; }
+  .intro-stats { flex-direction:row; gap:24px; }
+  .istat { border-bottom:none; border-right:0.5px solid var(--cream-border); padding-bottom:0; padding-right:24px; }
+  .istat:last-child { border-right:none; }
+  .attivita-inner { grid-template-columns:1fr; gap:32px; }
+  .attivita-section.reverse .attivita-inner { direction:ltr; }
+  .att-img-col img { height:280px; }
+}
+@media(max-width:600px) {
+  .intro-stats { flex-direction:column; }
+  .istat { border-right:none; border-bottom:0.5px solid var(--cream-border); padding-bottom:16px; }
+}
+</style>
